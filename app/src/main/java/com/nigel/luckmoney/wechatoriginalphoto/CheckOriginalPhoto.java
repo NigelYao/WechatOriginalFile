@@ -2,6 +2,7 @@ package com.nigel.luckmoney.wechatoriginalphoto;
 
 import de.robv.android.xposed.IXposedHookLoadPackage;
 import de.robv.android.xposed.XC_MethodReplacement;
+import de.robv.android.xposed.XposedBridge;
 import de.robv.android.xposed.XposedHelpers;
 import de.robv.android.xposed.callbacks.XC_LoadPackage.LoadPackageParam;
 
@@ -18,6 +19,8 @@ public class CheckOriginalPhoto implements IXposedHookLoadPackage {
         if (!loadPackageParam.packageName.contains("tencent.mm")) {
             return;
         }
+
+        XposedBridge.log("腾讯红包红包红包红包");
 
         try {
 
