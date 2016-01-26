@@ -20,5 +20,5 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    provided files('src/main/lib/XposedBridgeApi-54.jar')
 }

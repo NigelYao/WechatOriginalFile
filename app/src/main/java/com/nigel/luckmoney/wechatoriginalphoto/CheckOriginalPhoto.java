@@ -20,6 +20,7 @@ public class CheckOriginalPhoto implements IXposedHookLoadPackage {
             return;
         }
 
+        
         XposedBridge.log("腾讯红包红包红包红包");
 
         try {
