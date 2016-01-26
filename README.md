@@ -6,11 +6,18 @@ check wechat sns photos without sending lucky money / 让你不发红包就能�
 ## *如果您没有听说过Xposed，请勿尝试本项目*
 
 ## 使用方法
+1、编译并使用
 * 安装Xposed软件（需要root，支持android marshmallow）
 * git clone https://github.com/NigelYao/WechatOriginalFile.git
 * 导入到AS中
 * 运行并选择 Launcher No Activity
 * 重启即可在微信中查看照片（免发送红包，且需要最新版的微信）
+
+2、直接安装使用
+* 安装并启用Xposed
+* 下载bin目录下的apk安装包
+* 安装App之后，系统会提示启用并重启插件
+* 打开微信，点开红包照片，即可查看原图
 
 ## 使用效果
 ![images](https://pic2.zhimg.com/4f96466d8ec51dded98c60b5ebfd4d3d_b.png)
