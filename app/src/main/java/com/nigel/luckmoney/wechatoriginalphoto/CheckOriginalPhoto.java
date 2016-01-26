@@ -20,9 +20,6 @@ public class CheckOriginalPhoto implements IXposedHookLoadPackage {
             return;
         }
 
-        
-        XposedBridge.log("腾讯红包红包红包红包");
-
         try {
 
             findAndHookMethod("com.tencent.mm.plugin.sns.lucky.ui.LuckyRevealImageView", loadPackageParam.classLoader, "getBlurBitmapFilePath", new XC_MethodReplacement() {
