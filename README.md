@@ -9,7 +9,7 @@ check wechat sns photos without sending lucky money / 让你不发红包就能�
 
 ## 使用方法
 1、编译并使用
-* 安装并启用 Xposed 软件（需要 root，支持Aandroid Marshmallow）
+* 安装并启用 Xposed 软件（需要 root，支持Android Marshmallow）
 * git clone https://github.com/NigelYao/WechatOriginalFile.git
 * 导入到 AS 中
 * 运行并选择 Launche No Activity
