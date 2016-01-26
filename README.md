@@ -3,7 +3,7 @@ check wechat sns photos without sending lucky money / 让你不发红包就能�
 
 ###  注意：建议自行编译及安装，避免安装不合法或者被修改过的Xposed插件
 
-## **如果您没有听说过Xposed，请勿尝试本项目**
+## *如果您没有听说过Xposed，请勿尝试本项目*
 
 ## 使用方法
 * 安装Xposed软件（需要root，支持android marshmallow）
