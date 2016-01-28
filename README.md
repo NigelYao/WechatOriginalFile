@@ -10,6 +10,8 @@ check wechat sns photos without sending lucky money / 让你不发红包就能�
 ## 更新日志
 * 增加了红包照片的新入口，朋友圈首页，长按自己的头像即可进入红包照片发送页面，可正常选择照片和填写文字。（PS：非活动期间发送的红包照片会被腾讯拒绝，导致发送失败）/ 1.27.16
 
+![image](https://github.com/NigelYao/WechatOriginalFile/blob/master/bin/entry_demo.gif?raw=true)
+
 ## 使用方法
 1、编译并使用
 * 安装并启用 Xposed 软件（需要 root，支持Android Marshmallow）
