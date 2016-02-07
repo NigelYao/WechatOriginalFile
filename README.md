@@ -8,6 +8,7 @@ check wechat sns photos without sending lucky money / 让你不发红包就能�
 ## *如果您没有听说过 Xposed ，请勿尝试本项目*
 
 ## 更新日志
+* 针对微信6.3.13做了一点小调整，修复了长按自己头像无法进入红包照片发送界面的问题。由于照片红包是随机给某些用户开通权限，所以你可能没有收到微信的提示，无法通过正常途径发送，但是可以通过此插件自由的发送红包照片。1点半的时候测试发送成功。 / 2.7.16
 * 增加了红包照片的新入口，朋友圈首页，长按自己的头像即可进入红包照片发送页面，可正常选择照片和填写文字。（PS：非活动期间发送的红包照片会被腾讯拒绝，导致发送失败）/ 1.27.16
 
 ![image](https://github.com/NigelYao/WechatOriginalFile/blob/master/bin/entry_demo.gif?raw=true)
