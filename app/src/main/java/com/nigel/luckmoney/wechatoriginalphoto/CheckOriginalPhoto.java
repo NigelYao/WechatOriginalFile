@@ -4,6 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.view.View;
 
+import java.lang.reflect.Field;
+
 import de.robv.android.xposed.IXposedHookLoadPackage;
 import de.robv.android.xposed.XC_MethodHook;
 import de.robv.android.xposed.XC_MethodReplacement;
@@ -28,15 +30,31 @@ public class CheckOriginalPhoto implements IXposedHookLoadPackage {
             return;
         }
 
-        try {
+        try{
+            /* 试图针对6.3.13中的修改做些调整 */
+            findAndHookMethod("com.tencent.mm.plugin.sns.data.h", loadPackageParam.classLoader, "h", new XC_MethodReplacement() {
+                @Override
+                protected Object replaceHookedMethod(MethodHookParam param) throws Throwable {
+                    return XposedHelpers.callMethod(param.thisObject,"g");
+                }
+            });
+        }catch(Throwable e){
+            e.printStackTrace();
+        }
 
-            /* 替换模糊方法为原始文件方法 */
+        try{
+            /* 替换模糊方法为原始文件方法 仅6.3.11版本 */
             findAndHookMethod("com.tencent.mm.plugin.sns.lucky.ui.LuckyRevealImageView", loadPackageParam.classLoader, "getBlurBitmapFilePath", new XC_MethodReplacement() {
                 @Override
                 protected Object replaceHookedMethod(MethodHookParam param) throws Throwable {
                     return XposedHelpers.callMethod(param.thisObject,"getOriginBitmapFilePath");
                 }
             });
+        }catch (Throwable e){
+            e.printStackTrace();
+        }
+
+        try {
 
             /* 增加照片红包的入口 */
             findAndHookMethod("com.tencent.mm.plugin.sns.ui.SnsHeader", loadPackageParam.classLoader, "init", Context.class, new XC_MethodHook() {
@@ -55,15 +73,17 @@ public class CheckOriginalPhoto implements IXposedHookLoadPackage {
                             return false;
                         }
                     };
+                    Field[] field = param.thisObject.getClass().getDeclaredFields();
                     /* 找到头像并设置监听 */
-                    Object hec = XposedHelpers.getObjectField(param.thisObject, "gXo");
-                    Object avatar = XposedHelpers.getObjectField(hec, "cls");
+                    Object hec = XposedHelpers.getObjectField(param.thisObject, field[5].getName());
+                    String avatarFieldName = hec.getClass().getDeclaredFields()[0].getName();
+                    Object avatar = XposedHelpers.getObjectField(hec, avatarFieldName);
                     XposedHelpers.callMethod(avatar, "setOnLongClickListener", onLongClickListener);
                 }
 
             });
 
-        } catch (Exception e) {
+        } catch (Throwable e) {
             e.printStackTrace();
         }
     }
